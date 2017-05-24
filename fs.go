@@ -30,7 +30,7 @@ func (fs *FS) Exists(path string) (exists bool, err error) {
 }
 
 func (fs *FS) Remove(path string) error {
-	if os.RemoveAll(path); err != nil {
+	if err := os.RemoveAll(path); err != nil {
 		return fmt.Errorf("Error removing directory: %s\nError: %s\n", path, err)
 	}
 	return nil
