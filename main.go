@@ -2,16 +2,17 @@ package main
 
 import (
 	"fmt"
-	// "strings"
 	// "github.com/jrroman/de-cli/fs"
-	"github.com/jrroman/de-cli/cmd"
+	// "github.com/jrroman/de-cli/cmd"
+	"github.com/jrroman/de-cli/archive"
 )
 
 func main() {
-	cmd := new(cmd.RunCmd)
-	out, err := cmd.Run("ls", "-a")
+	c := new(archive.Compressed)
+	cmp, err := c.DetectCompression("testing.gz")
 	if err != nil {
 		fmt.Println(err)
 	}
-	fmt.Println(string(out))
+
+	fmt.Println(cmp)
 }
