@@ -2,17 +2,16 @@ package main
 
 import (
 	"fmt"
-	"github.com/jrroman/de-cli/fs"
+	// "strings"
+	// "github.com/jrroman/de-cli/fs"
+	"github.com/jrroman/de-cli/cmd"
 )
 
 func main() {
-	fs := new(fs.FS)
-	contents, err := fs.LsDir("/Users/john/tmp")
+	cmd := new(cmd.RunCmd)
+	out, err := cmd.Run("ls", "-a")
 	if err != nil {
 		fmt.Println(err)
 	}
-
-	for _, dir := range contents {
-		fmt.Println(dir)
-	}
+	fmt.Println(string(out))
 }
