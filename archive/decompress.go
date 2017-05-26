@@ -8,9 +8,9 @@ import (
 	// "compress/gzip"
 )
 
-type Compressed struct {}
+type Decompress struct {}
 
-func (c *Compressed) CompressionType(path string) (string, error) {
+func (d *Decompress) CompressionType(path string) (string, error) {
 	file, err := os.Open(path)
 	if err != nil {
 		return "", fmt.Errorf("Error opening file: %s\nError: %s", path, err)
