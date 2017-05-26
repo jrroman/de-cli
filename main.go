@@ -9,7 +9,7 @@ import (
 
 func main() {
 	c := new(archive.Compressed)
-	cmp, err := c.DetectCompression("testing.gz")
+	cmp, err := c.CompressionType("")
 	if err != nil {
 		fmt.Println(err)
 	}
